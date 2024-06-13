@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+@import url('https://fonts.cdnfonts.com/css/blueberry');
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #050A30;
+    color: white;
+    align-items: center;
+
+}
+
+.nav-logo {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 1;
+    font-family: 'Blueberry', sans-serif;
+    font-family: "Wallpoet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.figure-img {
+
+
+    z-index: 5;
+}
+
+.item-menu {
+    border-top: 2px solid rgb(51, 51, 51);
+    position: absolute;
+    width: 100%;
+    background-color: #050A30;
+    top: -230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: top 0.6s ease-in-out;
+}
+
+.nav-ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    list-style: none;
+    margin: auto 0;
+
+
+}
+
+.nav-ul li {
+    cursor: pointer;
+    cursor: pointer;
+    font-size: 17px;
+    line-height: 1.5;
+    position: relative;
+    transition: border-bottom 0.5s ease-in-out;
+
+}
+
+.nav-ul li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+
+    background-color: white;
+    transition: width 0.5s ease-in-out;
+}
+
+.nav-ul li:hover::before {
+    width: 100%;
+}
+
+
+
+
+
+.item-menu.active {
+    top: 60px;
+
+}
+
+.icon-cart {
+    font-size: 24px;
+    color: #333;
+}
+
+.icon-cart,
+.nav-logo span {
+    color: rgb(255, 230, 0);
+    cursor: pointer;
+}
+
+.icon-cart:hover {
+    color: rgb(14, 123, 92);
+}
+
+
+/* menu hambuger */
+.menu-ham {
+    z-index: 5;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    background: transparent;
+    gap: .65rem;
+}
+
+
+.menu-ham>div {
+    background: rgb(255, 255, 255);
+    height: 2px;
+    width: 100%;
+    border-radius: 5px;
+    transition: all .5s;
+    transform-origin: left;
+}
+
+.menu-ham.active div:first-child {
+    transform: rotate(45deg);
+}
+
+.menu-ham.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-ham.active div:last-child {
+    transform: rotate(-45deg);
+}
+
+
+@media (min-width:695px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .menu-ham {
+        display: none;
+    }
+
+    .item-menu {
+        border-top: 2px solid transparent;
+        position: relative;
+        width: max-content;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 3.5rem;
+
+    }
+
+    .nav-ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        list-style: none;
+        margin: auto 0;
+
+
+    }
+
+
+}
