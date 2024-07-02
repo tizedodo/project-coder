@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
+
 import { products } from "../../products";
 import ItemList from "./ItemList";
 
 function ItemListContainer({ titulo, mensaje }) {
-  const [showMesaje, setShowMesaje] = useState(false);
   const [items, setItems] = useState([]);
   const [error, setError] = useState({});
   // useEffect( ()=>{}, [])
@@ -30,27 +29,7 @@ function ItemListContainer({ titulo, mensaje }) {
       });
   }, []);
 
-  const handleClick = () => {
-    setShowMesaje(!showMesaje);
-  };
-  return (
-    <>
-      <ItemList items={items} />
-      {/* <div className="mt-5 text-center">
-        <Container>
-          <div className="d-grid">
-            <h2>{titulo}</h2>
-            {showMesaje && <span>{mensaje}</span>}
-            <div className="mt-5">
-              <Button onClick={handleClick} variant="dark">
-                {!showMesaje ? "Show mensaje" : "Hide mensaje"}
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </div> */}
-    </>
-  );
+  return <ItemList items={items} />;
 }
 
 export default ItemListContainer;

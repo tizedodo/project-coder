@@ -1,0 +1,19 @@
+.slick-thumb img {
+    width: 100%;
+    /* Ajusta el ancho para ocupar todo el espacio disponible */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+    max-width: 100px;
+    /* Ajusta el tamaño máximo de las miniaturas */
+    margin-right: 5px;
+    /* Espacio entre las miniaturas */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre ellas */
+    transition: transform 0.3s ease-in-out;
+    /* Efecto de transformación suave */
+}
+
+.slick-thumb img:hover {
+    transform: scale(1.1);
+    /* Efecto de escala al pasar el mouse */
+}

@@ -1,8 +1,7 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import Navbar from "./components/navbar/Navbar";
 import ItemListContainer from "./components/itemListContainer/ItemListContainer";
+import ProductDetail from "./ProductDetail";
+import HeroBanner from "./HeroBanner";
 // import './App.css'
 
 function App() {
@@ -12,8 +11,12 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <ItemListContainer titulo={titulo} mensaje={mensaje} />
+      {/* <Navbar />
+      <ItemListContainer titulo={titulo} mensaje={mensaje} /> */}
+      <HeroBanner />
+      {/* <div>
+        <ProductDetail />
+      </div> */}
     </>
   );
 }

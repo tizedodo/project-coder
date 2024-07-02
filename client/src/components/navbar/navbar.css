@@ -4,7 +4,7 @@
 .nav-container {
     display: flex;
     justify-content: space-between;
-    background-color: #050A30;
+    background-color: #000;
     color: white;
     align-items: center;
 
@@ -14,7 +14,7 @@
     cursor: pointer;
     font-size: 24px;
     font-weight: bold;
-    z-index: 1;
+    z-index: 5;
     font-family: 'Blueberry', sans-serif;
     /* font-family: "Wallpoet", sans-serif; */
     font-weight: 400;
@@ -31,14 +31,25 @@
     border-top: 2px solid rgb(51, 51, 51);
     position: absolute;
     width: 100%;
-    background-color: #050A30;
+    background-color: #000;
     top: -230px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    z-index: 1;
     transition: top 0.6s ease-in-out;
+}
+
+.icon-cart {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background-color: #050A30;
+    border-radius: 50%;
+    padding: 1px;
+    color: azure;
+
 }
 
 .nav-ul {
@@ -70,7 +81,7 @@
     height: 3px;
 
     background-color: white;
-    transition: width 0.5s ease-in-out;
+    transition: width 0.1s ease-in-out;
 }
 
 .nav-ul li:hover::before {
@@ -86,10 +97,6 @@
 
 }
 
-.icon-cart {
-    font-size: 24px;
-    color: #333;
-}
 
 .icon-cart,
 .nav-logo span {
@@ -137,8 +144,30 @@
     transform: rotate(-45deg);
 }
 
+/* Overlay para ocultar el body */
+.overlay {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s ease-in-out;
+}
+
+.overlay.active {
+    background-color: #00000045;
+    z-index: 10;
+    display: block;
+    cursor: pointer;
+}
 
 @media (min-width:695px) {
+    .overlay {
+        display: none;
+    }
+
     .nav-container {
         padding: 0 15px;
     }
@@ -165,6 +194,13 @@
         list-style: none;
         margin: auto 0;
 
+
+    }
+
+
+    .icon-cart {
+        position: relative;
+        background-color: transparent;
 
     }
 
