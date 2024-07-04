@@ -1,23 +1,22 @@
-import Navbar from "./components/navbar/Navbar";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/layaout/Layout";
 import ItemListContainer from "./components/itemListContainer/ItemListContainer";
-import ProductDetail from "./ProductDetail";
-import HeroBanner from "./HeroBanner";
-// import './App.css'
+import ItemDetailContailer from "./components/itemDetail/ItemDetailContailer";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
-  const titulo = "Bienvenido al E-Commerce de Tize-Dodo!";
-  const mensaje =
-    "Rapidez, Calidad y precio, sientete seguro en comprar y confiar en nuestra app...";
-
   return (
-    <>
-      {/* <Navbar />
-      <ItemListContainer titulo={titulo} mensaje={mensaje} /> */}
-      <HeroBanner />
-      {/* <div>
-        <ProductDetail />
-      </div> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:name" element={<ItemListContainer />} />
+          <Route path="/itemDetail/:id" element={<ItemDetailContailer />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

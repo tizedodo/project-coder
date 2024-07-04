@@ -6,9 +6,6 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import "./detail.css";
 
 const SlickSliderComponent = () => {
-  const sliderForRef = useRef(null);
-  const sliderNavRef = useRef(null);
-
   const slidesData = [
     {
       id: 1,
@@ -64,65 +61,9 @@ const SlickSliderComponent = () => {
     arrows: false,
   };
 
-  const settingsFor = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    lazyLoad: true,
-    asNavFor: sliderNavRef.current,
-    autoplay: true,
-    pauseOnFocus: true,
-  };
-
-  const settingsNav = {
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    asNavFor: sliderForRef.current,
-    dots: false,
-    autoplay: true,
-    focusOnSelect: true,
-    pauseOnFocus: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-    ],
-  };
-
   return (
     <>
       <Grid container spacing={0} sx={{ mt: 0 }}>
-        <Grid item className="container bg-warning " xs={12} p={0}>
-          <Slider {...settingsFor} ref={sliderForRef}>
-            {slidesData.map((slide) => (
-              <div key={slide.id}>
-                <img
-                  className="mx-auto"
-                  src={slide.content}
-                  maxWidth={100}
-                  height={200}
-                />
-              </div>
-            ))}
-          </Slider>
-          <Box sx={{ px: 5, maxWidth: "400px", mx: "auto" }}>
-            <Slider {...settingsNav} ref={sliderNavRef} className="slider-nav">
-              {slidesData.map((slide) => (
-                <div key={slide.id}>
-                  <img
-                    className="mx-auto"
-                    src={slide.content}
-                    maxWidth={50}
-                    height={50}
-                  />
-                </div>
-              ))}
-            </Slider>
-          </Box>
-        </Grid>
         <Grid>
           <h1>nombre del producto</h1>
           <Typography>$ 450</Typography>

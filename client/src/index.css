@@ -19,3 +19,8 @@ body {
   background-color: #EDEDED;
 
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -4,7 +4,7 @@ import ProductCard from "../productCard/ProductCard";
 
 function ItemList({ items }) {
   return (
-    <Container sx={{ marginTop: 5 }}>
+    <Container sx={{ marginTop: 5, minHeight: "85vh" }}>
       <Grid container spacing={2}>
         {items.map((item) => (
           <ProductCard key={item.id} item={item} />

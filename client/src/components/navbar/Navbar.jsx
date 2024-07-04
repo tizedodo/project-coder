@@ -5,8 +5,10 @@ import Swal from "sweetalert2";
 import Figure from "react-bootstrap/Figure";
 
 import IconButton from "@mui/material/IconButton";
+import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ children }) {
+  console.log(children);
   const [activeMenu, setActiveMenu] = useState(false);
   const handleClickMenu = (param) => {
     Swal.fire({
@@ -24,7 +26,10 @@ function Navbar() {
   return (
     <>
       <div className="nav-container">
-        <div className="d-flex align-items-center cursor-pointer position-relative z-index-5">
+        <Link
+          to="/"
+          className="d-flex align-items-center cursor-pointer position-relative z-index-5 text-decoration-none"
+        >
           <Figure.Image
             className="cursor-pointer z-index-5 "
             width={40}
@@ -36,7 +41,8 @@ function Navbar() {
           <h1 className="nav-logo">
             TiZE <span>Shop</span>
           </h1>
-        </div>
+        </Link>
+
         <button
           className={`menu-ham ${activeMenu ? "active" : ""}`}
           onClick={() => handleActiveMenu()}
@@ -47,11 +53,10 @@ function Navbar() {
         </button>
         <div className={`item-menu ${activeMenu ? "active" : ""}`}>
           <ul className="nav-ul">
-            <li onClick={() => handleClickMenu("Pc")}>Pc</li>
-            <li onClick={() => handleClickMenu("Perfume")}>Perfume</li>
-            <li onClick={() => handleClickMenu("Acessorios")}>Acessorios</li>
-            <li onClick={() => handleClickMenu("Celulares")}>Celulares</li>
-            <li onClick={() => handleClickMenu("Productos")}>Otros</li>
+            <Link to="category/Notebooks">Notebooks</Link>
+            <Link to="category/Components">Components</Link>
+            <Link to="category/Tablets">Tablets</Link>
+            <Link to="category/Accessories">Accesorios</Link>
           </ul>
           <div className="icon-cart">
             <IconButton>

@@ -13,6 +13,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShareIcon from "@mui/icons-material/Share";
 import { toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 // Inicializa las notificaciones de toastify
 
@@ -34,7 +35,8 @@ function ProductCard({ item }) {
     // lg: 1200px o más (laptops grandes, desktops)
     // xl: 1536px o más (monitores de alta resolución)
     <Grid item xs={6} sm={4} md={3}>
-      <Card sx={{ maxWidth: 300, margin: "0 auto" }}>
+      {/* sx={{ maxWidth: 300, margin: "0 auto" }} */}
+      <Card>
         <Stack direction="row">
           <IconButton>
             <FavoriteBorderIcon
@@ -56,7 +58,7 @@ function ProductCard({ item }) {
           </IconButton>
         </Stack>
         <CardMedia
-          image={item.img}
+          image={item.img[0]}
           title={item.title}
           className="mx-auto"
           sx={{
@@ -98,7 +100,13 @@ function ProductCard({ item }) {
             ${item.price}
           </Typography>
         </CardContent>
-        <CardActions>
+
+        <CardActions
+          sx={{
+            display: "grid",
+            gap: 2,
+          }}
+        >
           <Button
             variant="contained"
             size="small"
@@ -108,6 +116,11 @@ function ProductCard({ item }) {
           >
             ADD TO CART
           </Button>
+          <Link to={`/ItemDetail/${item.id}`}>
+            <Button variant="contained" size="small">
+              see detail
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </Grid>

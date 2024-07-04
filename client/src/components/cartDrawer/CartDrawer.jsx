@@ -100,7 +100,7 @@ const CartDrawer = ({ open, onClose, onRemoveItem }) => {
             {cartItems.map((item, index) => (
               <ListItem key={index}>
                 <img
-                  src={item.img}
+                  src={item.img[0]}
                   alt={item.name}
                   width={50}
                   height={50}
